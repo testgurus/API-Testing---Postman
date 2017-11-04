@@ -1,0 +1,178 @@
+{
+	"id": "df575b9b-67bf-16ab-5443-a89076d485e4",
+	"name": "TestGuruRestAssuredAPI",
+	"description": "This project is explaining to handle Rest based assured APIs including manual and automation testing using POSTMAN TOOL",
+	"order": [],
+	"folders": [
+		{
+			"name": "Get",
+			"description": "Get is folder having all APIs with GET request.",
+			"collectionId": "df575b9b-67bf-16ab-5443-a89076d485e4",
+			"order": [
+				"52ebf743-5987-54b2-4898-fc67e417784e",
+				"a42613d8-f383-9335-56f9-cdb8f3881052",
+				"b81d47d1-b39e-aa6b-5990-538ff5f330f4",
+				"8f8493b9-b128-211c-7fb5-315ecc20dc30",
+				"7b3b9d9e-2afe-25b8-afe2-aec1807f36d5"
+			],
+			"owner": 0,
+			"folders_order": [],
+			"id": "386cd400-b268-d8c8-50a1-cec0f529bf33"
+		},
+		{
+			"name": "Post",
+			"description": "",
+			"collectionId": "df575b9b-67bf-16ab-5443-a89076d485e4",
+			"order": [],
+			"owner": 0,
+			"folders_order": [],
+			"id": "102b612b-1691-3c6c-6375-9656116ca0a0"
+		}
+	],
+	"folders_order": [
+		"386cd400-b268-d8c8-50a1-cec0f529bf33",
+		"102b612b-1691-3c6c-6375-9656116ca0a0"
+	],
+	"timestamp": 1509811245447,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "52ebf743-5987-54b2-4898-fc67e417784e",
+			"headers": "",
+			"headerData": [],
+			"url": "{{QA}}/country/search?text=in",
+			"folder": "386cd400-b268-d8c8-50a1-cec0f529bf33",
+			"queryParams": [
+				{
+					"key": "text",
+					"value": "in",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1509816746525,
+			"name": "getAllCountryHavingWords",
+			"description": "",
+			"collectionId": "df575b9b-67bf-16ab-5443-a89076d485e4",
+			"responses": []
+		},
+		{
+			"id": "7b3b9d9e-2afe-25b8-afe2-aec1807f36d5",
+			"headers": "",
+			"headerData": [],
+			"url": "http://maps.googleapis.com/maps/api/geocode/json?address=india&sensor=false",
+			"queryParams": [
+				{
+					"key": "address",
+					"value": "india",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "sensor",
+					"value": "false",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "df575b9b-67bf-16ab-5443-a89076d485e4",
+			"data": null,
+			"dataMode": "params",
+			"name": "getGeoOfCountry",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1509811943161,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "386cd400-b268-d8c8-50a1-cec0f529bf33"
+		},
+		{
+			"id": "8f8493b9-b128-211c-7fb5-315ecc20dc30",
+			"headers": "",
+			"headerData": [],
+			"url": "{{baseURL}}/state/get/IND/all",
+			"queryParams": [],
+			"preRequestScript": "console.log(\"Setting the QA Environment\");\npostman.clearEnvironmentVariable(\"Test\");\n\nconsole.log(\"Setting up the base URL\");\npostman.setEnvironmentVariable(\"baseURL\", \"http://services.groupkt.com\");\n",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": "//System defined code\ntests[\"Status code is 200\"] = responseCode.code === 200;\n\n//User defined code\nif (responseCode.code === 200)\n{\n    tests[\"Status Code - TEST STATUS\"] = \"Status Code\";\n    console.log(\"TEST SUCCESSFULLY PASSED\")\n}\n\n//System defined code\ntests[\"Response time is less than 2000ms\"] = responseTime < 2000;\n\n//User defined code\nif (responseTime < 2000)\n{\n    tests[\"Response Time - TEST STATUS\"] = \"Response Time\";\n    console.log(\"TEST SUCCESSFULLY PASSED\");\n}\n\n\n//System defined code\ntests[\"Status code name has string\"] = responseCode.name.has(\"200\");\n\n//User defined code\nif (responseCode.name.has(\"200\"))\n{\n    tests[\"Response Code - TEST STATUS\"] = \"Response Code\";\n    console.log(\"TEST SUCCESSFULLY PASSED\");\n}\n\n//System define code\n//var jsonData = JSON.parse(responseBody);\n//tests[\"Verify JSON DATA\"] = jsonData.id === \"56\";\n\n//System define code\ntests[\"Response Body - TEST STATUS\"] = responseBody.has(\"Assam\");\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1509815994920,
+			"name": "getStatesOfCountry",
+			"description": "",
+			"collectionId": "df575b9b-67bf-16ab-5443-a89076d485e4",
+			"responses": []
+		},
+		{
+			"id": "a42613d8-f383-9335-56f9-cdb8f3881052",
+			"headers": "",
+			"headerData": [],
+			"url": "{{QA}}/country/get/iso3code/IND",
+			"folder": "386cd400-b268-d8c8-50a1-cec0f529bf33",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1509816752867,
+			"name": "getCountryISOCode",
+			"description": "",
+			"collectionId": "df575b9b-67bf-16ab-5443-a89076d485e4",
+			"responses": []
+		},
+		{
+			"id": "b81d47d1-b39e-aa6b-5990-538ff5f330f4",
+			"headers": "",
+			"headerData": [],
+			"url": "{{QA}}/country/get/all",
+			"folder": "386cd400-b268-d8c8-50a1-cec0f529bf33",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1509812442224,
+			"name": "getAllCountry",
+			"description": "",
+			"collectionId": "df575b9b-67bf-16ab-5443-a89076d485e4",
+			"responses": []
+		}
+	]
+}
